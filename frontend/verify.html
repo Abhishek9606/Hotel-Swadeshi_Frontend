@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - Hotel Swadeshi</title>
+    <link rel="stylesheet" href="verify.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <span class="logo-hotel">Hotel</span>
+            <span class="logo-swadeshi">Swadeshi</span>
+        </a>
+    </header>
+
+    <main class="verify-container">
+        <div class="verify-card">
+            <div class="email-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            
+            <h1>Check Your Email</h1>
+            <p class="subtitle">We have sent a unique 6-digit verification code to</p>
+            <p class="email-display" id="emailDisplay">your@email.com</p>
+
+            <form id="verifyForm" class="verify-form">
+                <div class="otp-container" id="otpContainer">
+                    <input type="text" class="otp-input" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]" autocomplete="one-time-code">
+                    <input type="text" class="otp-input" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]">
+                    <input type="text" class="otp-input" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]">
+                    <input type="text" class="otp-input" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]">
+                    <input type="text" class="otp-input" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]">
+                    <input type="text" class="otp-input" maxlength="1" data-index="5" inputmode="numeric" pattern="[0-9]">
+                </div>
+                
+                <span class="error-message" id="otpError"></span>
+
+                <button type="submit" class="btn btn-verify" id="verifyBtn">
+                    <span class="btn-text">Verify Email</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <div class="resend-section">
+                <p>Didn't receive the code?</p>
+                <button type="button" class="btn-resend" id="resendBtn">Resend OTP</button>
+                <span class="timer" id="timer"></span>
+            </div>
+
+            <a href="signup.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Sign Up
+            </a>
+        </div>
+    </main>
+
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <script src="verify.js"></script>
+</body>
+</html>

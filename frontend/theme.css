@@ -1,0 +1,39 @@
+/* Shared Hotel Swadeshi brand tokens */
+:root {
+    --cream: #f5f0eb;
+    --cream-warm: #faf6f1;
+    --terracotta: #a0522d;
+    --terracotta-light: #c4724a;
+    --terracotta-dark: #8b4513;
+    --text: #3d3d3d;
+    --text-dark: #2c2c2c;
+    --text-muted: #888888;
+    --line: rgba(61, 61, 61, 0.12);
+    --surface: #ffffff;
+    --shadow-sm: 0 2px 12px rgba(44, 36, 32, 0.08);
+    --shadow-md: 0 8px 32px rgba(44, 36, 32, 0.12);
+    --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-script: "Great Vibes", "Segoe Script", cursive;
+    --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+.brand-hotel {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.brand-swadeshi {
+    font-family: var(--font-script);
+    font-weight: 400;
+    color: var(--terracotta);
+    font-size: 1.15em;
+}
+
+.brand-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}

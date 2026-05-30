@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --saffron: #FF9933;
+    --saffron-dark: #E67300;
+    --green: #138808;
+    --green-dark: #0D5C06;
+    --cream: #FFF8E7;
+    --brown: #8B4513;
+    --text-dark: #2C1810;
+    --text-light: #5D4037;
+    --white: #FFFFFF;
+    --error: #DC3545;
+    --error-light: #FFE6E8;
+    --success: #28A745;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--cream) 0%, #FFF5E1 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(255, 248, 231, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logo-hotel {
+    color: var(--text-dark);
+}
+
+.logo-swadeshi {
+    color: var(--saffron);
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Verify Container */
+.verify-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 2rem;
+}
+
+.verify-card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.email-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--white);
+}
+
+.verify-card h1 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.email-display {
+    color: var(--saffron);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    word-break: break-all;
+}
+
+/* OTP Form */
+.verify-form {
+    margin-bottom: 1.5rem;
+}
+
+.otp-container {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.otp-input {
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: 2px solid #E0D5C7;
+    border-radius: 12px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+}
+
+.otp-input:focus {
+    outline: none;
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+}
+
+.otp-input.filled {
+    border-color: var(--green);
+    background: rgba(19, 136, 8, 0.05);
+}
+
+.otp-input.error {
+    border-color: var(--error);
+    background: var(--error-light);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    min-height: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Verify Button */
+.btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-verify {
+    width: 100%;
+    background: var(--green);
+    color: var(--white);
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-verify:hover:not(:disabled) {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(19, 136, 8, 0.4);
+}
+
+.btn-verify:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-verify .btn-loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-verify.loading .btn-loader {
+    display: block;
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Resend Section */
+.resend-section {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.resend-section p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.btn-resend {
+    background: none;
+    border: none;
+    color: var(--saffron);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+}
+
+.btn-resend:hover:not(:disabled) {
+    color: var(--saffron-dark);
+    text-decoration: underline;
+}
+
+.btn-resend:disabled {
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+.timer {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--saffron);
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 2000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+    background: var(--error);
+}
+
+.toast.success {
+    background: var(--success);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .verify-card {
+        padding: 2rem;
+    }
+    
+    .otp-container {
+        gap: 0.5rem;
+    }
+    
+    .otp-input {
+        width: 42px;
+        height: 52px;
+        font-size: 1.25rem;
+    }
+}

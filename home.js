@@ -1,139 +1,45 @@
+let foodData = []
 
-// ===== Sample Food Data =====
-const foodData = [
-    {
-        id: 1,
-        name: "Butter Chicken",
-        type: "non-veg",
-        price: 280,
-        image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&h=300&fit=crop",
-        description: "Tender chicken pieces cooked in a rich, creamy tomato-based sauce with aromatic spices. A beloved North Indian classic that melts in your mouth.",
-        ingredients: "Chicken, butter, cream, tomatoes, kasuri methi, garam masala, ginger-garlic paste, and a blend of traditional spices. Served with naan or rice.",
-        popularity: 95,
-        popular: true
-    },
-    {
-        id: 2,
-        name: "Paneer Tikka Masala",
-        type: "veg",
-        price: 220,
-        image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=300&fit=crop",
-        description: "Grilled paneer cubes tossed in a smoky, spiced tomato gravy. Perfect for vegetarians who love bold flavors.",
-        ingredients: "Paneer, bell peppers, onions, tomatoes, yogurt marinade, tikka spices, cream, and fresh coriander. Best enjoyed with butter naan.",
-        popularity: 88,
-        popular: true
-    },
-    {
-        id: 3,
-        name: "Masala Dosa",
-        type: "veg",
-        price: 120,
-        image: "https://images.unsplash.com/photo-1668236543090-82eb5f8d7e1e?w=400&h=300&fit=crop",
-        description: "Crispy, golden fermented rice crepe filled with spiced potato masala. A South Indian breakfast favorite.",
-        ingredients: "Fermented rice and urad dal batter, potato bhaji with mustard seeds, curry leaves, turmeric, and green chilies. Served with coconut chutney and sambar.",
-        popularity: 92,
-        popular: true
-    },
-    {
-        id: 4,
-        name: "Chicken Biryani",
-        type: "non-veg",
-        price: 320,
-        image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=300&fit=crop",
-        description: "Fragrant basmati rice layered with tender spiced chicken, slow-cooked to perfection. The king of Indian rice dishes.",
-        ingredients: "Basmati rice, chicken, saffron, fried onions, mint, coriander, whole spices, and ghee. Served with raita and salan.",
-        popularity: 98,
-        popular: true
-    },
-    {
-        id: 5,
-        name: "Dal Makhani",
-        type: "veg",
-        price: 180,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
-        description: "Creamy black lentils slow-cooked overnight with butter and cream. A rich, comforting Punjabi delicacy.",
-        ingredients: "Black urad dal, rajma, butter, cream, tomatoes, ginger, garlic, and aromatic spices. Simmered for hours for ultimate richness.",
-        popularity: 85,
-        popular: false
-    },
-    {
-        id: 6,
-        name: "Tandoori Chicken",
-        type: "non-veg",
-        price: 350,
-        image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop",
-        description: "Succulent chicken marinated in yogurt and spices, roasted in a clay oven until charred and juicy.",
-        ingredients: "Whole chicken, yogurt, kashmiri red chili, ginger-garlic paste, lemon juice, garam masala, and mustard oil. Served with mint chutney.",
-        popularity: 90,
-        popular: true
-    },
-    {
-        id: 7,
-        name: "Chole Bhature",
-        type: "veg",
-        price: 150,
-        image: "https://images.unsplash.com/photo-1626132647523-66d0b294de32?w=400&h=300&fit=crop",
-        description: "Spicy chickpea curry served with fluffy deep-fried bread. A hearty Punjabi street food classic.",
-        ingredients: "Chickpeas, onions, tomatoes, chole masala, amchur, and tamarind. Bhature made with maida, yogurt, and semolina.",
-        popularity: 87,
-        popular: false
-    },
-    {
-        id: 8,
-        name: "Fish Curry",
-        type: "non-veg",
-        price: 290,
-        image: "https://images.unsplash.com/photo-1626508035297-e8a93e0f8c16?w=400&h=300&fit=crop",
-        description: "Fresh fish simmered in a tangy coconut-based curry with traditional coastal spices.",
-        ingredients: "Fresh fish, coconut milk, kokum, tamarind, curry leaves, mustard seeds, and coastal spice blend. Served with steamed rice.",
-        popularity: 82,
-        popular: false
-    },
-    {
-        id: 9,
-        name: "Aloo Paratha",
-        type: "veg",
-        price: 80,
-        image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop",
-        description: "Whole wheat flatbread stuffed with spiced mashed potatoes. A beloved North Indian breakfast staple.",
-        ingredients: "Whole wheat flour, potatoes, green chilies, coriander, cumin, amchur, and ghee. Served with pickle and curd.",
-        popularity: 91,
-        popular: true
-    },
-    {
-        id: 10,
-        name: "Mutton Rogan Josh",
-        type: "non-veg",
-        price: 420,
-        image: "https://images.unsplash.com/photo-1545247181-516773cae754?w=400&h=300&fit=crop",
-        description: "Tender mutton pieces slow-cooked in a rich Kashmiri gravy with aromatic spices.",
-        ingredients: "Mutton, Kashmiri red chilies, fennel, ginger, yogurt, and traditional rogan josh spice blend. Slow-cooked for hours.",
-        popularity: 89,
-        popular: true
-    },
-    {
-        id: 11,
-        name: "Idli Sambar",
-        type: "veg",
-        price: 90,
-        image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=300&fit=crop",
-        description: "Soft, fluffy steamed rice cakes served with aromatic lentil soup and coconut chutney.",
-        ingredients: "Fermented rice and urad dal batter, toor dal sambar with vegetables, tamarind, and sambar powder. Served with coconut chutney.",
-        popularity: 86,
-        popular: false
-    },
-    {
-        id: 12,
-        name: "Palak Paneer",
-        type: "veg",
-        price: 200,
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop",
-        description: "Cottage cheese cubes in a velvety spinach gravy. A nutritious and flavorful vegetarian delight.",
-        ingredients: "Fresh spinach, paneer, onions, tomatoes, ginger, garlic, green chilies, and cream. Served with roti or naan.",
-        popularity: 84,
-        popular: false
+
+// Example: Fetch JSON data from an API and wait for the response
+async function getData() {
+    const url = "http://127.0.0.1:5000/foods";
+
+    try {
+        // Send GET request and wait for the response
+        const response = await fetch(url);
+
+        // Check if HTTP status is OK (200–299)
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Wait for the body to be parsed as JSON
+        const raw = await response.json();
+
+           foodData = raw.map(food => ({
+            id: food.food_id,
+            name: food.food_name,
+            price: food.food_price,
+            type: food.food_type,
+            description: food.description,
+            popular: food.popular,
+            popularity: food.popularity
+        }));
+
+        console.log("Data received:", foodData);
+          renderFoodCards();   // <-- ADD THIS
+    } catch (error) {
+        console.error("Request failed:", error.message);
     }
-];
+}
+
+getData();
+
+
+  
+
+
 
 
 
@@ -183,13 +89,14 @@ const toastMessage = document.getElementById('toast-message');
 
 
 // ===== Initialize Application =====
-document.addEventListener('DOMContentLoaded', function() {
-    renderFoodCards();
+document.addEventListener('DOMContentLoaded', async function() {   // Then render cards
+
     updateCartCount();
     loadProfile();
     setupEventListeners();
     checkOrderSuccess();
 });
+
 
 // ===== Event Listeners Setup =====
 function setupEventListeners() {
@@ -368,6 +275,7 @@ function closeAllPanels() {
 // ===== Food Cards Rendering =====
 function renderFoodCards() {
     const filteredFoods = filterFoods();
+    console.log("rendering", filteredFoods);
     const noResults = document.getElementById('no-results');
     
     if (filteredFoods.length === 0) {
@@ -377,7 +285,10 @@ function renderFoodCards() {
     }
     
     noResults.classList.add('hidden');
+    console.log(filteredFoods);
+
     foodGrid.innerHTML = filteredFoods.map(food => createFoodCard(food)).join('');
+    console.log(foodGrid.innerHTML);
     
     // Add event listeners to cards
     document.querySelectorAll('.food-card').forEach(card => {
@@ -401,13 +312,13 @@ function createFoodCard(food) {
     return `
         <div class="food-card" data-id="${food.id}">
             <div class="food-card-image">
-                <img src="${food.image}" alt="${food.name}">
+                <img src="https://gimmerecipe.com/wp-content/uploads/2024/09/Authentic-South-Indian-Masala-Dosa-Recipe.webp" alt="${food.food_name}">
                 <div class="food-type-indicator ${food.type}"></div>
                 ${food.popular ? '<span class="popularity-badge">Popular</span>' : ''}
             </div>
             <div class="food-card-content">
                 <h3 class="food-card-name">${food.name}</h3>
-                <p class="food-card-type">${food.type === 'veg' ? 'Vegetarian' : 'Non-Vegetarian'}</p>
+                <p class="food-card-type">${food.type === 'Veg' ? 'Vegetarian' : 'Non-Vegetarian'}</p>
                 <div class="food-card-footer">
                     <span class="food-card-price">&#8377;${food.price}</span>
                     <button class="food-card-add-btn" data-id="${food.id}">Add</button>
@@ -415,6 +326,7 @@ function createFoodCard(food) {
             </div>
         </div>
     `;
+     console.log("created",food);
 }
 
 function filterFoods() {

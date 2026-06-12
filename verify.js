@@ -161,12 +161,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const otp = getOTPValue();
         const email = localStorage.getItem('userEmail');
+        const token = localStorage.getItem('verifcation_token');
         
         verifyBtn.classList.add('loading');
         verifyBtn.disabled = true;
         
         try {
-            const response = await fetch('http://127.0.0.1:5000/verify', {
+            const response = await fetch('http://127.0.0.1:5000/verify_email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -178,8 +179,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (response.status === 200) {
                 showToast('Email verified successfully! Redirecting...', 'success');
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
+
                 setTimeout(() => {
-                    window.location.href = 'signin.html';
+                    window.location.href = 'home.html';
                 }, 1500);
             } else if (response.status === 400) {
                 showToast(data.message || 'Invalid verification code. Please try again.', 'error');
@@ -227,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             
             if (response.status === 200) {
-                showToast('Verification code sent successfully!', 'success');
+                showToast('Verification code resent successfully!', 'success');
             } else {
                 showToast(data.message || 'Failed to resend code. Please try again.', 'error');
             }

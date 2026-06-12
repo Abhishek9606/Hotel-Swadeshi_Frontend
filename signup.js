@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (response.status === 200) {
                 showToast('Account created successfully! Redirecting...', 'success');
+              
                 setTimeout(() => {
                     window.location.href = 'verify.html';
                 }, 1500);
